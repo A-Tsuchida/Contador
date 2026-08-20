@@ -89,9 +89,6 @@ type ExtMsg =
   | ToggleVisibility of bool
   | Initialize of {| clockPosition: int * int; isClockOpen: bool; isClockLocked: bool |}
 
-type ISendMessage =
-  abstract member SendMessage: ExtMsg -> unit
-
 type Window() as this =
   inherit Hosts.HostWindow()
   let event = new Event<Msg>()
@@ -111,8 +108,8 @@ type Window() as this =
     |> Program.withSubscription subscriber
     |> Program.runWithAvaloniaSyncDispatch ()
 
-  interface ISendMessage with
-    member this.SendMessage(msg: ExtMsg) =
+  interface ISendMessage<ExtMsg> with
+    member this.SendMessage(msg) =
       match msg with
       | Start time -> event.Trigger(Msg.Start time)
       | Stop -> event.Trigger(Msg.Stop)

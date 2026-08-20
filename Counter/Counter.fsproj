@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="ISendMessage.fs" />
     <Compile Include="Mode.fs" />
     <Compile Include="Config.fs" />
     <Compile Include="Clock.fs" />
