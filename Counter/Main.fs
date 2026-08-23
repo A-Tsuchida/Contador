@@ -9,7 +9,7 @@ open Mode
 type private State = {
   mode: Mode
   time: System.TimeSpan
-  clock: Clock.ISendMessage
+  clock: ISendMessage
   isClockOpen: bool
   isClockLocked: bool
   isClockRunning: bool
@@ -23,7 +23,7 @@ type private Message =
   | ToggleClockMove
   | ClockPosition of int * int
 
-let private init (config: Config.Data) (clock: Clock.ISendMessage) () =
+let private init (config: Config.Data) (clock: ISendMessage) () =
   Clock.ExtMsg.Initialize {| clockPosition = config.clockPosition; isClockOpen = config.isClockOpen; isClockLocked = config.isClockLocked |}
   |> clock.SendMessage
 
