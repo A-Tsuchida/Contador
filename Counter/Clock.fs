@@ -100,6 +100,13 @@ type Window() as this =
     this.CanMinimize <- false
     this.WindowDecorations <- WindowDecorations.BorderOnly
     this.SizeToContent <- SizeToContent.WidthAndHeight
+    this.TransparencyLevelHint <- [
+      if System.Environment.OSVersion.Platform = System.PlatformID.Win32NT then
+        WindowTransparencyLevel.AcrylicBlur
+      else
+        WindowTransparencyLevel.Transparent
+    ]
+    this.Background <- Avalonia.Media.Brushes.Transparent
 
     let subscriber = createSubscriber event
 
