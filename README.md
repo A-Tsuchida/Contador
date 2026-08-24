@@ -6,8 +6,7 @@ Aplicativo desktop desenvolvido em F# com Avalonia para controlar um contador de
 
 Antes de compilar e executar o projeto, certifique-se de ter instalado:
 
-- .NET SDK 10.0 ou superior
-- Git
+- [.NET SDK 10.0](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) ou superior
 - Um ambiente compatível com aplicações desktop Avalonia (Windows, Linux ou macOS)
 
 > Este projeto usa o SDK .NET 10 e a solução está configurada em `Counter.slnx`.
