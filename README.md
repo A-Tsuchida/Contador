@@ -55,5 +55,5 @@ dotnet run --project "Counter/Counter.fsproj"
 
 ## Observações
 
-- O projeto é uma aplicação desktop e pode exigir permissões de execução do sistema operacional ao iniciar.
+- Os dados da aplicação são salvos na pasta de dados do aplicativo do sistema operacional (`ApplicationData`), então não há necessidade de configuração em nível do sistema.
 - Em desenvolvimento, também é possível usar `dotnet build` sem `--configuration Release` para compilar em modo Debug.
