@@ -51,7 +51,13 @@ let private elementRole value =
   AttrBuilder<Border>.CreateProperty<Avalonia.Input.WindowDecorationsElementRole>(Chrome.WindowDecorationProperties.ElementRoleProperty, value, ValueNone)
 
 let private view (state: Model) dispatch =
-  let timeString = sprintf "%02d:%02d:%02d" (state.left.TotalHours |> int |> abs) (state.left.Minutes |> abs) (state.left.Seconds |> abs)
+  let hours = state.left.TotalHours |> int |> abs
+  let minutes = state.left.Minutes |> abs
+  let seconds = state.left.Seconds |> abs
+  let timeString =
+    if hours = 0
+    then sprintf "%02d:%02d" minutes seconds
+    else sprintf "%02d:%02d:%02d" hours minutes seconds
   let isNegative = state.left < System.TimeSpan.Zero
   let isLocked = state.locked
 
